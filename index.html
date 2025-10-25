@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduRank — Auto Grading & Leaderboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+      <button id="tab-login" class="tab active" onclick="showTab('login')">Login</button>
+      <button id="tab-upload" class="tab" onclick="showTab('upload')">Upload</button>
+      <button id="tab-leaderboard" class="tab" onclick="showTab('leaderboard')">Leaderboard</button>
+    </div>
+
+    <!-- Login Section -->
+    <section id="login" class="section active">
+      <div class="glass-panel">
+        <h1>Edu<span class="gold">Rank</span></h1>
+        <form id="loginForm">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="text" id="roll" placeholder="Roll Number" required />
+          <button type="submit" class="btn-gold">Continue</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="section">
+      <div class="glass-panel">
+        <h2>Hello, <span id="greeting-name" class="gold">Student</span></h2>
+        <p>Roll No: <span id="greeting-roll"></span></p>
+        <form id="uploadForm" enctype="multipart/form-data">
+          <select id="week-select" class="week-select">
+            <option>Week 1</option>
+            <option>Week 2</option>
+          </select>
+          <label class="file-upload">
+            <input type="file" id="pdf-file" accept=".pdf, .txt, .docx" required />
+            <span>📎 Choose PDF Answer Sheet</span>
+          </label>
+          <button type="submit" class="btn-gold">Grade My Answers</button>
+        </form>
+        <div id="result" class="result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="section">
+      <div class="glass-panel">
+        <h2>🏆 Leaderboard</h2>
+        <select id="lb-week" class="week-select" onchange="loadLeaderboard()">
+          <option>Week 1</option>
+          <option>Week 2</option>
+        </select>
+        <div id="leaderboard-list" class="leaderboard"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
